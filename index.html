@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scene to Image Director</title>
+    <title>AI Movie Studio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,65 +12,61 @@
 <body>
     <div class="container">
         <header>
-            <h1>Scene to Image Director</h1>
-            <p>Transform stories into cinematic masterpieces.</p>
+            <h1>AI Movie Studio</h1>
+            <p>From Idea to Script to Scene.</p>
         </header>
 
         <main>
+            <div class="writer-section">
+                <h2>1. The Scriptwriter (Start Here)</h2>
+                <p>Don't have a story? Ask the AI to write one for you.</p>
+                <textarea id="idea-input" rows="3" placeholder="e.g. Write a horror story about a clown in an abandoned carnival..."></textarea>
+                <button id="write-btn">✍️ Write & Direct Story</button>
+            </div>
+
             <div class="story-section">
-                <h2>1. Story Mode (Optional)</h2>
-                <p>Paste a raw story below (Hindi or English). The AI Director (Alex V. Roman) will analyze it, create a character dossier, and write scene prompts for you.</p>
-                <textarea id="story-input" rows="4" placeholder="Paste your story here... e.g., 'Ek detective tha jo baarish mein chalta ja raha tha...'"></textarea>
+                <h2>2. The Director</h2>
+                <p>The story appears here. The Director converts it into visual scenes.</p>
+                <textarea id="story-input" rows="4" placeholder="Story will appear here automatically..."></textarea>
                 <button id="convert-btn">🎬 Direct My Story</button>
             </div>
 
             <div class="input-section">
-                <h2>2. Scene Editor</h2>
-                <p>Edit the generated prompts below if needed, then click "Parse Scenes".</p>
+                <h2>3. Scene Editor & Generator</h2>
+                <p>Review the scenes and generate images.</p>
                 <textarea id="main-prompt" rows="15" 
-                placeholder="Prompts will appear here automatically after using Story Mode. 
-
-Or paste manually:
-Scene #1: A cyberpunk city in the year 2099...
-Scene #2: A close up of a detective..."></textarea>
+                placeholder="Scene prompts will appear here automatically."></textarea>
                 <button id="parse-btn">Parse Scenes</button>
             </div>
 
             <div class="settings-section">
                 <div class="setting-item">
-                    <label for="text-model-select">Refine Model (Text):</label>
-                    <select id="text-model-select">
-                        <option value="openai" selected>Loading...</option>
-                    </select>
-                </div>
-
-                <div class="setting-item">
-                    <label for="image-model-select">Image Model:</label>
-                    <select id="image-model-select">
-                        <option value="flux" selected>Loading...</option>
-                    </select>
-                </div>
-
-                <div class="setting-item">
-                    <label for="visual-style-input">Visual Style:</label>
-                    <input type="text" id="visual-style-input" value="photorealistic" placeholder="e.g., cinematic">
+                    <label>Refine Model (Text):</label>
+                    <select id="text-model-select"><option value="openai">Loading...</option></select>
                 </div>
                 <div class="setting-item">
-                    <label for="seed-input">Master Seed:</label>
-                    <input type="number" id="seed-input" value="42" placeholder="Main seed">
+                    <label>Image Model:</label>
+                    <select id="image-model-select"><option value="flux">Loading...</option></select>
                 </div>
                 <div class="setting-item">
-                    <label for="width-input">Width:</label>
+                    <label>Visual Style:</label>
+                    <input type="text" id="visual-style-input" value="2d animation, flat color line, high quality">
+                </div>
+                <div class="setting-item">
+                    <label>Seed:</label>
+                    <input type="number" id="seed-input" value="9632">
+                </div>
+                <div class="setting-item">
+                    <label>Width:</label>
                     <input type="number" id="width-input" value="1920">
                 </div>
                 <div class="setting-item">
-                    <label for="height-input">Height:</label>
+                    <label>Height:</label>
                     <input type="number" id="height-input" value="1080">
                 </div>
             </div>
 
-            <div id="scenes-container">
-            </div>
+            <div id="scenes-container"></div>
         </main>
     </div>
     <script src="script.js"></script>
